@@ -47,6 +47,8 @@ namespace ConnectSQLServer
                 SqlCommand command = new SqlCommand();
                 command.CommandText = "SELECT * FROM messages";
                 command.Connection = connection;
+
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows) // если есть данные
@@ -66,14 +68,16 @@ namespace ConnectSQLServer
                     }
                     Console.WriteLine();
                 }
+                reader.Close();
+                
+                string sqlExpression1 = "INSERT INTO messages (id, user_name, text, date_time) VALUES (6, 'Kate', 'Hello Evgen, it is Kate!', GETDATE())";
+                // string sqlExpression1 = "insert into messages (id) values(4);";
+               // string sqlExpression1 = "update messages set user_name = 'evg' where id = 1;";
 
-                //string sqlExpression1 = "INSERT INTO messages (id, user_name, text, date_time) VALUES (2, 'Kate', 'Hello Evgen, it is Kate!', GETDATE())";
-                string sqlExpression1 = "insert into messages values(2, 'kate', 'hello evgen', GETDATE());";
 
-
-                //SqlCommand command1 = new SqlCommand(sqlExpression1, connection);
-                //int number = command.ExecuteNonQuery();
-                //Console.WriteLine("Добавлено объектов: {0}", number);
+                SqlCommand command1 = new SqlCommand(sqlExpression1, connection);
+                int number = command1.ExecuteNonQuery();
+                Console.WriteLine("Добавлено объектов: {0}", number);
                 
 
 
