@@ -70,7 +70,7 @@ namespace ConnectSQLServer
                 }
                 reader.Close();
                 
-                string sqlExpression1 = "INSERT INTO messages (id, user_name, text, date_time) VALUES (8, 'Kat', 'Hello Evgen, it is Kate!', GETDATE())";
+                string sqlExpression1 = "INSERT INTO messages (id, user_name, text, date_time) VALUES (12, 'Katerina', 'Hello Evgen, it is Kate!', GETDATE())";
                 // string sqlExpression1 = "insert into messages (id) values(4);";
                // string sqlExpression1 = "update messages set user_name = 'evg' where id = 1;";
 
